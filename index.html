@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Animation-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <!--Icons-->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
+
 <body>
     <!--<div>
         <h1>Tralalalala</h1>
@@ -87,7 +90,8 @@
                                         '<p class="nameColor">' + person.name.first +
                                         '</p><img src=' + person.picture.large + ' class="my-3 rounded-circle"><p><em>' + 
                                             person.dob.age + '</em></p><p><em>' + 
-                                            person.location.city + '</em></p></div>')
+                                            person.location.city + '</em></p><p class="chat">Chat with ' + person.name.first + 
+                                            '  <a href="https://www.google.com/" target="_blank"><i class="far fa-comments"></i></a></p></div>')
                         });
                     }
                 });
@@ -110,7 +114,7 @@
             });
 
         
-            // button
+           /* // button
             
             $( "#myButton" ).click(function() {
                 alert( "42" );
@@ -118,8 +122,7 @@
 
             // Manipulation
 
-            /*
-           <!--var arr = document.getElementsByTagName("p");
+           var arr = document.getElementsByTagName("p");
             for (var x = 0; x < arr.length; x++) {
             arr[0].innerHTML = "Hi there";
             }

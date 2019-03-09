@@ -11,7 +11,7 @@
      font-size: 30px;
  } */
 
- .jumbotron {
+.jumbotron {
      font-size: 100px;
      text-align: center;
      color:  rgb(153, 5, 30);
@@ -19,7 +19,7 @@
      background-color: pink !important;
  }
 
- #names {
+#names {
      font-size: 20px;
      color: black;
      font-weight: 50;
@@ -29,22 +29,31 @@
      line-height: 50%;
  }
 
- .nameColor {
+.nameColor {
      color: rgb(148, 40, 58);
      font-size: 25px;
  }
 
- .zoom {
+.zoom {
     transition: transform .2s; /* Animation */
     margin: 0 auto;
     background-color: white;
  }
 
- .zoom:hover {
+.zoom:hover {
     transform: scale(1.2);
   }
 
- .border {
+.chat {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.fa-comments {
+    margin: 10px;
+}
+
+.border {
     border-style: solid;
     border-color: lightcoral;
  }

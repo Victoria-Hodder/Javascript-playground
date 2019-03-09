@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Animation-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+<body>
+    <!--<div>
+        <h1>Tralalalala</h1>
+        <button id="myButton" type="button">What is the ultimate answer?</button>
+        <h2>H2 H2 Woohoo Woohoo</h2>
+        <p class="except">Here is a paragraph for the purposes of this exercise</p>
+        <p>I looooooooooooove paragraphs</p>
+        <p>Let's drink lots of tea and celebrate!</p>
+    </div>
+    
+    <div class="spring">
+        <h2>hummm humm hummm</h2>
+        <p>There is a bee outside my window</p>
+        <p>It must be spring</p>
+    </div>
+    
+    <div class="container">
+        <div class="row" id="mug">
+        </div>
+    </div>
+    
+    <div class="container">
+            <div class="row" id="picture">
+            </div>
+        </div>
+    </div>    -->
+
+    <div class="jumbotron my-3">
+            <h1>SexyPeople</h1>
+    </div>
+
+    <div class="container">
+        <div class="row" id="names">
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.
+    js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+        //console.log stuff
+            $( document ).ready(function() {
+                console.log( "Woohoo!" );
+
+                var animal = ["Rabbits", "Tigers", "Bears", "Lions"];
+                var food = ["carrots", "steak", "chips", "people"];
+
+                for (var i = 0; i < animal.length; i++) { 
+                    console.log(animal[i] + " eat " + food[i]);
+                    
+                }
+
+                    $.ajax({
+                        url: 'https://randomuser.me/api/?results=20',
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+
+                            $.each(data.results, function(key,value){
+                            /* the value in the results array is about an indivudal person so lets make our code a bit easier to read and assign value to a variable called person. */
+                            var person = value
+                            console.log(person.name.first);
+
+                            
+                            $("#names").append('<div class="col-md-3 my-4">'+
+                                        '<p class="nameColor">' + person.name.first +
+                                        '</p><img src=' + person.picture.large + ' class="my-3 rounded-circle"><p><em>' + 
+                                            person.dob.age + '</em></p><p><em>' + 
+                                            person.location.city + '</em></p></div>')
+                        });
+                    }
+                });
+            });
+            
+            
+            var animal = ["cat", "dog", "yak"]
+            $.each( animal, function( key, value) {
+            console.log("The position " + key + " is " + value);
+            }); 
+
+
+            $.each( animal, function( key, value) {
+            $('#mug').append("<div class='col-md-4'><p>I like to eat " + value + "</p></div>");
+            }); 
+
+            var image = ['49', '86']
+            $.each( image, function( key, value) {
+            $('#picture').append("<div class='col-md-6 py-5'><img src=" + value + ".jpg></div>");
+            });
+
+        
+            // button
+            
+            $( "#myButton" ).click(function() {
+                alert( "42" );
+            });
+
+            // Manipulation
+
+            var arr = document.getElementsByTagName("p");
+            for (var x = 0; x < arr.length; x++) {
+            arr[0].innerHTML = "Hi there";
+            }
+
+            //$( ".spring" ).insertBefore( "#foo" );
+
+            //$( "p" ).remove();
+
+            //$( "h2" ).replaceWith( "<h2>New heading</h2>" );
+
+            /*$( "p" ).wrap( "<div><div><p><em><b></b></em></p></div></div>" );
+            $( ".except" ).remove();*/
+
+            // $( "p" ).wrap( $( ".doublediv" ) ); - OK this one I DON'T understand
+
+            /*$( "p" ).on( "mouseover", function() {
+            $( this ).css( "color", "red",);
+            }); */
+
+            //$( "p" ).append( $( "h2" )  );
+    
+    </script>
+
+    <!--Wow animation-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script> 
+    <script> new WOW().init(); </script>
+
+</body>
+</html>

@@ -79,12 +79,11 @@
                             console.log(data);
 
                             $.each(data.results, function(key,value){
-                            /* the value in the results array is about an indivudal person so lets make our code a bit easier to read and assign value to a variable called person. */
                             var person = value
                             console.log(person.name.first);
 
                             
-                            $("#names").append('<div class="col-md-3 my-4">'+
+                            $("#names").append('<div class="col-md-3 my-4 zoom">'+
                                         '<p class="nameColor">' + person.name.first +
                                         '</p><img src=' + person.picture.large + ' class="my-3 rounded-circle"><p><em>' + 
                                             person.dob.age + '</em></p><p><em>' + 
@@ -119,27 +118,28 @@
 
             // Manipulation
 
-            var arr = document.getElementsByTagName("p");
+            /*
+           <!--var arr = document.getElementsByTagName("p");
             for (var x = 0; x < arr.length; x++) {
             arr[0].innerHTML = "Hi there";
             }
 
-            //$( ".spring" ).insertBefore( "#foo" );
+            $( ".spring" ).insertBefore( "#foo" );
 
-            //$( "p" ).remove();
+            $( "p" ).remove();
 
-            //$( "h2" ).replaceWith( "<h2>New heading</h2>" );
+            $( "h2" ).replaceWith( "<h2>New heading</h2>" );
 
-            /*$( "p" ).wrap( "<div><div><p><em><b></b></em></p></div></div>" );
+            *$( "p" ).wrap( "<div><div><p><em><b></b></em></p></div></div>" );
             $( ".except" ).remove();*/
 
             // $( "p" ).wrap( $( ".doublediv" ) ); - OK this one I DON'T understand
 
             /*$( "p" ).on( "mouseover", function() {
             $( this ).css( "color", "red",);
-            }); */
+            });
 
-            //$( "p" ).append( $( "h2" )  );
+            $( "p" ).append( $( "h2" )  );  */
     
     </script>
 

@@ -16,6 +16,7 @@
      color:  rgb(153, 5, 30);
      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
      background-color: pink !important;
+     margin: 0px;
  }
 
  .jumbotron h1 {
@@ -65,4 +66,8 @@
     font-size: 25px;
     margin-bottom: 5px;
     margin-top: 5px;
+ }
+
+ navbar {
+     margin: 0px;
  }

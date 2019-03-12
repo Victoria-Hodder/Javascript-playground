@@ -41,11 +41,11 @@
         </div>
     </div>    -->
 
-    <div class="jumbotron my-3">
+    <div class="jumbotron">
             <h1>SexyPeople</h1>
     </div>
 
-    <div class="container-fluid justify-content-center mb-5">
+    <div class="container-fluid justify-content-center mb-5 mt-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-victoria">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -128,7 +128,7 @@
 
             $.each(navigation.mainmenu, function(key,value){
                 console.log(value.title);
-                $("#victoria").append('<li class="nav-item col-md-3 offset-md-1"><a class="nav-link" href="'+ value.path +'">' + value.title + '</a></li>')
+                $("#victoria").append('<li class="nav-item col-md-3"><a class="nav-link" href="'+ value.path +'">' + value.title + '</a></li>')
             })
 
             var animal = ["cat", "dog", "yak"]

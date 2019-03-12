@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Javascript</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Animation-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <!--Icons-->
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -45,6 +45,18 @@
             <h1>SexyPeople</h1>
     </div>
 
+    <div class="container-fluid justify-content-center mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-victoria">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav" id="victoria">
+              </ul>
+            </div>
+          </nav>
+    </div>
+
     <div class="container">
         <div class="row" id="names">
         </div>
@@ -76,7 +88,7 @@
                 }
 
                     $.ajax({
-                        url: 'https://randomuser.me/api/?results=20',
+                        url: 'https://randomuser.me/api/?results=100',
                         dataType: 'json',
                         success: function(data) {
                             console.log(data);
@@ -88,16 +100,37 @@
                             
                             $("#names").append('<div class="col-md-3 my-4 zoom">'+
                                         '<p class="nameColor">' + person.name.first +
-                                        '</p><img src=' + person.picture.large + ' class="my-3 rounded-circle"><p><em>' + 
-                                            person.dob.age + '</em></p><p><em>' + 
-                                            person.location.city + '</em></p><p class="chat">Chat with ' + person.name.first + 
-                                            '  <a href="https://www.google.com/" target="_blank"><i class="far fa-comments"></i></a></p></div>')
+                                        '</p><img src="' + person.picture.large + '" class="my-3 rounded-circle"><p><em>' + 
+                                        person.dob.age + '</em></p><p><em>' + 
+                                        person.location.city + '</em></p><p class="chat">Chat with ' + person.name.first + 
+                                        '  <a href="https://www.google.com/" target="_blank"><i class="far fa-comments"></i></a></p></div>')
                         });
                     }
                 });
             });
-            
-            
+
+            var navigation = {
+                "mainmenu":[
+                    {
+                        "title": "home",
+                        "path" : "/"
+                    },
+                    {
+                        "title": "About",
+                        "path" : "/about.html"
+                    },
+                    {
+                        "title": "Contact",
+                        "path" : "/contact-us.html"
+                    }
+                ]
+            };
+
+            $.each(navigation.mainmenu, function(key,value){
+                console.log(value.title);
+                $("#victoria").append('<li class="nav-item col-md-3 offset-md-1"><a class="nav-link" href="'+ value.path +'">' + value.title + '</a></li>')
+            })
+
             var animal = ["cat", "dog", "yak"]
             $.each( animal, function( key, value) {
             console.log("The position " + key + " is " + value);

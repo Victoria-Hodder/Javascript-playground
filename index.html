@@ -15,37 +15,13 @@
 </head>
 
 <body>
-    <!--<div>
-        <h1>Tralalalala</h1>
-        <button id="myButton" type="button">What is the ultimate answer?</button>
-        <h2>H2 H2 Woohoo Woohoo</h2>
-        <p class="except">Here is a paragraph for the purposes of this exercise</p>
-        <p>I looooooooooooove paragraphs</p>
-        <p>Let's drink lots of tea and celebrate!</p>
-    </div>
-    
-    <div class="spring">
-        <h2>hummm humm hummm</h2>
-        <p>There is a bee outside my window</p>
-        <p>It must be spring</p>
-    </div>
-    
-    <div class="container">
-        <div class="row" id="mug">
-        </div>
-    </div>
-    
-    <div class="container">
-            <div class="row" id="picture">
-            </div>
-        </div>
-    </div>    -->
+
 
     <div class="jumbotron">
             <h1>SexyPeople</h1>
     </div>
 
-    <div class="container-fluid justify-content-center mb-5 mt-0">
+    <div class="container-fluid justify-content-center mb-5 mt-0 m-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-victoria">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -61,11 +37,15 @@
         <div class="row" id="names">
         </div>
     </div>
+
+    <div class="container">
+        <div class="row" id="restaurants">
+        </div>
+    </div>
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.
-    js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
     crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
@@ -73,8 +53,6 @@
 
 
     <script>
-
-
         //console.log stuff
             $( document ).ready(function() {
                 console.log( "Woohoo!" );
@@ -87,28 +65,43 @@
                     
                 }
 
-                    $.ajax({
-                        url: 'https://randomuser.me/api/?results=100',
+                     $.ajax({
+                        url: 'https://randomuser.me/api/?results=24',
                         dataType: 'json',
                         success: function(data) {
                             console.log(data);
 
                             $.each(data.results, function(key,value){
-                            var person = value
-                            console.log(person.name.first);
+                                var person = value
+                                console.log(person.name.first);
 
                             
-                            $("#names").append('<div class="col-md-3 my-4 zoom">'+
+                                $("#names").append('<div class="col-md-3 my-4 zoom">'+
                                         '<p class="nameColor">' + person.name.first +
                                         '</p><img src="' + person.picture.large + '" class="my-3 rounded-circle"><p><em>' + 
                                         person.dob.age + '</em></p><p><em>' + 
                                         person.location.city + '</em></p><p class="chat">Chat with ' + person.name.first + 
-                                        '  <a href="https://www.google.com/" target="_blank"><i class="far fa-comments"></i></a></p></div>')
-                        });
-                    }
-                });
-            });
+                                        '  <a href="https://www.google.com/" target="_blank"><i class="far fa-comments"></i></a></p></div>');
+                            });
+                        
+                        }
+                    });
 
+                    $.ajax({
+                        type: 'GET',
+                        url:  'http://127.0.0.1:5000/restaurants',
+                        dataType: 'jsonp',
+                        success: function(data) {
+                            console.log(data);
+
+                            $.each(data, function(key,value){
+                                var restaurants = value;
+                                
+                                $("#restaurants").append('<p>Testing</p>');
+                            });
+                        }
+                    });
+                    
             var navigation = {
                 "mainmenu":[
                     {
@@ -133,50 +126,20 @@
 
             var animal = ["cat", "dog", "yak"]
             $.each( animal, function( key, value) {
-            console.log("The position " + key + " is " + value);
+                console.log("The position " + key + " is " + value);
             }); 
 
 
             $.each( animal, function( key, value) {
-            $('#mug').append("<div class='col-md-4'><p>I like to eat " + value + "</p></div>");
+                $('#mug').append("<div class='col-md-4'><p>I like to eat " + value + "</p></div>");
             }); 
 
-            var image = ['49', '86']
+            var image = ['49', '86'];
             $.each( image, function( key, value) {
-            $('#picture').append("<div class='col-md-6 py-5'><img src=" + value + ".jpg></div>");
+                $('#picture').append("<div class='col-md-6 py-5'><img src=" + value + ".jpg></div>");
             });
 
-        
-           /* // button
-            
-            $( "#myButton" ).click(function() {
-                alert( "42" );
-            });
-
-            // Manipulation
-
-           var arr = document.getElementsByTagName("p");
-            for (var x = 0; x < arr.length; x++) {
-            arr[0].innerHTML = "Hi there";
-            }
-
-            $( ".spring" ).insertBefore( "#foo" );
-
-            $( "p" ).remove();
-
-            $( "h2" ).replaceWith( "<h2>New heading</h2>" );
-
-            *$( "p" ).wrap( "<div><div><p><em><b></b></em></p></div></div>" );
-            $( ".except" ).remove();*/
-
-            // $( "p" ).wrap( $( ".doublediv" ) ); - OK this one I DON'T understand
-
-            /*$( "p" ).on( "mouseover", function() {
-            $( this ).css( "color", "red",);
-            });
-
-            $( "p" ).append( $( "h2" )  );  */
-    
+    });    
     </script>
 
     <!--Wow animation-->
